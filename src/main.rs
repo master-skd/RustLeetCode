@@ -1,13 +1,20 @@
 mod solution;
-mod merge;
+// mod merge;
+// mod removeElement;
+mod removeDuplicate;
+
+use std::fmt::Display;
 use solution::Solution;
 
-fn main() {
-    let mut nums1 = vec![2, 0];
-    let mut nums2 = vec![1];
-
-    Solution::merge(&mut nums1, 1, &mut nums2, 1);
-    for n in nums1 {
-        print!("{} ", n);
+fn diplayVec<T: Display>(nums: &Vec<T>) {
+    for c in nums.into_iter() {
+        print!("{} ", c);
     }
+}
+
+fn main() {
+    let mut nums = vec![0,0,1,1,1,1,2,3,3];
+    let res = Solution::remove_duplicates(&mut nums);
+    println!("{}", res);
+    diplayVec(&nums);
 }
