@@ -1,3 +1,4 @@
+use std::cmp::min;
 use std::collections::HashMap;
 use super::solution::Solution;
 
@@ -41,7 +42,31 @@ impl Solution {
     }
 
     pub fn max_profit(prices: Vec<i32>) -> i32 {
+        let mut minprice: i32 = 100000;
+        let mut maxprofit = 0;
+        for price in prices {
+            maxprofit = if maxprofit > price - minprice {
+                maxprofit
+            } else {
+                price - minprice
+            };
+            minprice = if minprice < price {
+                minprice
+            } else {
+                price
+            };
+        }
+        return maxprofit;
+    }
 
-        return;
+    pub fn max_profit2(prices: Vec<i32>) -> i32 {
+        let len = prices.len();
+        let mut maxprofit: i32 = 0;
+        for i in 1..len {
+            if prices[i - 1] < prices[i] {
+                maxprofit += prices[i] - prices[i - 1];
+            }
+        }
+        return maxprofit;
     }
 }

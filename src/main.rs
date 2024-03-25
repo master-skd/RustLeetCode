@@ -2,7 +2,8 @@ mod solution;
 // mod merge;
 // mod removeElement;
 // mod removeDuplicate;
-mod majorityElement;
+// mod majorityElement;
+mod jump;
 
 use std::fmt::Display;
 use solution::Solution;
@@ -14,8 +15,7 @@ fn displayVec<T: Display>(nums: &Vec<T>) {
 }
 
 fn main() {
-    let mut nums = vec![1,2,3];
-    let k = 4;
-    Solution::rotate(&mut nums, k);
-    displayVec(&nums);
+    let mut nums = vec![7,1,5,3,6,4];
+    let res = Solution::max_profit2(nums);
+    println!("{}", res);
 }
