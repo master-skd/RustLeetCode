@@ -14,7 +14,8 @@ fn displayVec<T: Display>(nums: &Vec<T>) {
 }
 
 fn main() {
-    let nums = vec![2,2,1,1,1,2,2];
-    let res = Solution::majority_element(nums);
-    println!("{}", res);
+    let mut nums = vec![1,2,3];
+    let k = 4;
+    Solution::rotate(&mut nums, k);
+    displayVec(&nums);
 }
